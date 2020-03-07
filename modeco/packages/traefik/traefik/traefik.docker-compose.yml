@@ -1,0 +1,26 @@
+---
+version: '3'
+services:
+
+# START SERVICE traefik.base
+  traefik:
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.traefik.base:v2.1
+    environment: []
+    command: []
+    volumes: [/var/run/docker.sock:/var/run/docker.sock]
+    ports: [${CONTECO_DC_TRAEFIK_PORTS}]
+    networks: [traefik_overlay, modeco_overlay]
+    deploy:
+      mode: replicated
+      resources:
+        limits:
+          cpus: '${CONTECO_DC_TRAEFIK_DEPLOY_RESOURCES_LIMITS_CPUS}'
+          memory: '${CONTECO_DC_TRAEFIK_DEPLOY_RESOURCES_LIMITS_MEMORY}'
+        reservations:
+          cpus: '${CONTECO_DC_TRAEFIK_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
+          memory: '${CONTECO_DC_TRAEFIK_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+      labels: [${CONTECO_DC_TRAEFIK_DEPLOY_LABELS}]
+# END SERVICE traefik.base
+
+volumes: {}
+networks: {traefik_overlay: { external: true },modeco_overlay: { external: true }}
