@@ -12,6 +12,7 @@ services:
     networks: [traefik_overlay, modeco_overlay]
     deploy:
       mode: replicated
+      replicas: ${TRAEFIK_DEPLOY_REPLICAS}
       resources:
         limits:
           cpus: '${TRAEFIK_DEPLOY_RESOURCES_LIMITS_CPUS}'
@@ -19,7 +20,10 @@ services:
         reservations:
           cpus: '${TRAEFIK_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${TRAEFIK_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+      placement:
+        constraints: [${TRAEFIK_DEPLOY_PLACEMENT_CONSTRAINTS}]
       labels: [${TRAEFIK_DEPLOY_LABELS}]
+    labels: [${TRAEFIK_LABELS}]
 # END SERVICE traefik.base
 
 volumes: {}
