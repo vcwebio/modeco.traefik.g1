@@ -5,7 +5,7 @@ export CONTECO_DESCRIPTION="The Traefik generation 1 module, providing autodisco
 
 export CONTECO_TYPE="traefik"
 export CONTECO_NAME="g1"
-export CONTECO_TAG="v1.0.0"
+export CONTECO_TAG="v1.0.1"
 export CONTECO_TAG_TYPE="incremental"
 
 export CONTECO_BASE="image.wrapper"
