@@ -12,7 +12,7 @@ services:
     networks: [traefik_overlay, modeco_overlay]
     deploy:
       mode: replicated
-      replicas: ${TRAEFIK_DEPLOY_REPLICAS}
+      ${TRAEFIK_DEPLOY_MODE_REPLICATED_REPLICAS}
       resources:
         limits:
           cpus: '${TRAEFIK_DEPLOY_RESOURCES_LIMITS_CPUS}'
