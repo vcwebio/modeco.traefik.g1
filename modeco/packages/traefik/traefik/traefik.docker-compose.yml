@@ -9,22 +9,17 @@ services:
     command: []
     volumes: [/var/run/docker.sock:/var/run/docker.sock]
     ports: [${TRAEFIK_PORTS}]
-    networks: [traefik_overlay, modeco_overlay]
+    networks: [${CONTECO_NETWORKLOCAL}_overlay, ${CONTECO_NETWORKGLOBAL}_overlay]
     deploy:
       mode: replicated
-      ${TRAEFIK_DEPLOY_MODE_REPLICATED_REPLICAS}
       resources:
         limits:
-          cpus: '${TRAEFIK_DEPLOY_RESOURCES_LIMITS_CPUS}'
           memory: '${TRAEFIK_DEPLOY_RESOURCES_LIMITS_MEMORY}'
         reservations:
-          cpus: '${TRAEFIK_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${TRAEFIK_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
-      placement:
-        constraints: [${TRAEFIK_DEPLOY_PLACEMENT_CONSTRAINTS}]
-      labels: [${TRAEFIK_DEPLOY_LABELS}]
-    labels: [${TRAEFIK_LABELS}]
+${TRAEFIK_COMPOSE_EXTENSIONS}
 # END SERVICE traefik.base
 
+networks: {${CONTECO_NETWORKLOCAL}_overlay: { external: true },${CONTECO_NETWORKGLOBAL}_overlay: { external: true }}
 volumes: {}
-networks: {traefik_overlay: { external: true },modeco_overlay: { external: true }}
+${CONTECO_DC_GLOBAL_COMPOSE_EXTENSIONS}

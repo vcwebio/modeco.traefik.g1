@@ -12,19 +12,14 @@ services:
     networks: [${CONTECO_NETWORKLOCAL}_overlay, ${CONTECO_NETWORKGLOBAL}_overlay]
     deploy:
       mode: replicated
-      ${CONTECO_DC_TRAEFIK_DEPLOY_MODE_REPLICATED_REPLICAS}
       resources:
         limits:
-          cpus: '${CONTECO_DC_TRAEFIK_DEPLOY_RESOURCES_LIMITS_CPUS}'
           memory: '${CONTECO_DC_TRAEFIK_DEPLOY_RESOURCES_LIMITS_MEMORY}'
         reservations:
-          cpus: '${CONTECO_DC_TRAEFIK_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${CONTECO_DC_TRAEFIK_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
-      placement:
-        constraints: [${CONTECO_DC_TRAEFIK_DEPLOY_PLACEMENT_CONSTRAINTS}]
-      labels: [${CONTECO_DC_TRAEFIK_DEPLOY_LABELS}]
-    labels: [${CONTECO_DC_TRAEFIK_LABELS}]
+${CONTECO_DC_TRAEFIK_COMPOSE_EXTENSIONS}
 # END SERVICE traefik.base
 
-volumes: {}
 networks: {${CONTECO_NETWORKLOCAL}_overlay: { external: true },${CONTECO_NETWORKGLOBAL}_overlay: { external: true }}
+volumes: {}
+${CONTECO_DC_GLOBAL_COMPOSE_EXTENSIONS}
