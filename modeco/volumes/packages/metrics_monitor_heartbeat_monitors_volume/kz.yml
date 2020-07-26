@@ -8,7 +8,7 @@
 #  check.receive: 'Hello World'
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: kz
     type: internal
     service: ksql_server
@@ -23,7 +23,7 @@
 #  check.receive: 'Hello World'
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: kz
     type: internal
     service: ksql_server

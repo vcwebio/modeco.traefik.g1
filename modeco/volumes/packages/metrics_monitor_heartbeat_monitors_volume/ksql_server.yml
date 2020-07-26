@@ -5,7 +5,7 @@
   check.response.status: [200]
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: ksql
     type: external
     service: ksql_server
@@ -21,7 +21,7 @@
   check.response.status: [200]
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: ksql
     type: internal
     service: ksql_server

@@ -5,7 +5,7 @@
   check.response.status: [200]
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: kafka_connect
     type: external
     service: kafka_connect
@@ -21,7 +21,7 @@
   check.response.status: [200]
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: kafka_connect
     type: internal
     service: kafka_connect

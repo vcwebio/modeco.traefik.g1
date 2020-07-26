@@ -5,7 +5,7 @@
   check.response.status: [200]
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: ekg
     type: external
     service: elasticsearch
@@ -18,7 +18,7 @@
   check.response.status: [301]
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: ekg
     type: external
     service: kibana
@@ -31,7 +31,7 @@
   check.response.status: [301]
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: ekg
     type: external
     service: kibana
@@ -46,7 +46,7 @@
   check.response.status: [200]
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: ekg
     type: internal
     service: elasticsearchhttp://
@@ -59,7 +59,7 @@
   check.response.status: [200]
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: ekg
     type: internal
     service: grafana
@@ -72,7 +72,7 @@
   check.response.status: [302]
   schedule: '@every 30s'
   fields:
-    scope: module
+    scope: "${MODECO_STACKSCOPE}"
     stack: ekg
     type: internal
     service: kibana
