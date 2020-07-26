@@ -11,13 +11,13 @@ services:
     ports: []
     networks: [${CONTECO_NETWORKLOCAL}_overlay]
     deploy:
-      mode: ${CONTECO_DC_HEARTBEAT_DEPLOY_MODE}
+      mode: ${CONTECO_DC_METRICS_MONITOR_DEPLOY_MODE}
       resources:
         limits:
-          memory: '${CONTECO_DC_HEARTBEAT_DEPLOY_RESOURCES_LIMITS_MEMORY}'
+          memory: '${CONTECO_DC_METRICS_MONITOR_DEPLOY_RESOURCES_LIMITS_MEMORY}'
         reservations:
-          memory: '${CONTECO_DC_HEARTBEAT_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
-${CONTECO_DC_HEARTBEAT_COMPOSE_EXTENSIONS}
+          memory: '${CONTECO_DC_METRICS_MONITOR_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+${CONTECO_DC_METRICS_MONITOR_COMPOSE_EXTENSIONS}
 # END SERVICE heartbeat.base
 
 networks: {${CONTECO_NETWORKLOCAL}_overlay: { external: true }}
