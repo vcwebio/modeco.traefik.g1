@@ -4,7 +4,7 @@ services:
 
 # START SERVICE traefik.base
   traefik:
-    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.traefik.base:v2.1
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.traefik.base:v2.3.1
     environment: []
     command: []
     volumes: [/var/run/docker.sock:/var/run/docker.sock]
